@@ -1,11 +1,13 @@
 const { Schema, model } = require('mongoose')
+const mongoose = require('mongoose')
+const moment = require('moment')
 
 const ReactionSchema = new Schema(
     {
         // Use Mongoose's ObjectId data type and Default value is set to a new ObjectId
         reactionId: {
-            type: Schema.Types.ObjectId,
-            default: new Schema.Types.ObjectId()
+            type: mongoose.Types.ObjectId,
+            default: new mongoose.Types.ObjectId()
         },
         reactionBody: {
             type: String,
@@ -14,7 +16,7 @@ const ReactionSchema = new Schema(
             maxlength: 280
         },
         username: {
-            type: Schema.Types.ObjectId,
+            type: mongoose.Types.ObjectId,
             ref: 'user',
             required: true,
             
@@ -51,7 +53,7 @@ const ThoughtSchema = new Schema(
             default: Date.now
         },
         username: {
-            type: Schema.Types.ObjectId,
+            type: mongoose.Types.ObjectId,
             ref: 'user',
             required: true,
             
@@ -76,6 +78,6 @@ const ThoughtSchema = new Schema(
         return this.reactions.length
     })
 
-const Thought = model('thought', ThoughtSchema)
+const Thought = model('Thought', ThoughtSchema)
 
 module.exports = Thought

@@ -19,10 +19,14 @@ router
     .put(updateThought)
     .delete(deleteThought);
 
-// Matches with "/api/thoughts/:id/reactions/:reactionId"
+// Matches with "/api/thoughts/:id/reactions"
 router
-    .route('/:id/reactions/:reactionId')
+    .route('/:thoughtId/reactions')
     .post(addReaction)
-    .delete(deleteReaction);
+
+// Matches with "/api/thoughts/:thoughtId/reactions/:reactionId"
+router
+    .route('/:thoughtId/reactions/:reactionId')
+    .delete(deleteReaction)
 
 module.exports = router;
