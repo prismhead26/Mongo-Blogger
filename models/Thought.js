@@ -17,7 +17,7 @@ const ReactionSchema = new Schema(
         },
         username: {
             type: mongoose.Types.ObjectId,
-            ref: 'user',
+            ref: 'User',
             required: true,
             
         },
@@ -52,9 +52,10 @@ const ThoughtSchema = new Schema(
             type: Date,
             default: Date.now
         },
-        username: {
+        // create username property to auto populate with the user's name based on the user's id
+        userId: {
             type: mongoose.Types.ObjectId,
-            ref: 'user',
+            ref: 'User',
             required: true,
             
         },

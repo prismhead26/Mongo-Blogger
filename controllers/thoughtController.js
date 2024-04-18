@@ -3,9 +3,9 @@ const { Thought, User } = require('../models')
 module.exports = {
     async createThought(req, res) {
         try {
-            const thought = await Thought.create(req.body)
+            const thought = (await Thought.create(req.body))
             await User.findOneAndUpdate(
-                { _id: req.body.username },
+                { _id: req.body.userId },
                 { $push: { thoughts: thought._id } },
                 { new: true }
             )
@@ -24,6 +24,8 @@ module.exports = {
         try {
             const thoughts = await Thought.find({})
                 .populate('reactions', '-__v')
+                // populate only the username field from the User model into the Thought model
+                .populate( { path: 'userId', model: 'User', select: { "username": 1 } } )
                 .select('-__v')
                 .sort({ createdAt: -1 })
             res.json(thoughts)
@@ -63,7 +65,7 @@ module.exports = {
             }
 
             await User.findOneAndUpdate(
-                { _id: req.body.username },
+                { _id: req.body.userId },
                 { $pull: { thoughts: req.params.id } },
                 { new: true }
             )
