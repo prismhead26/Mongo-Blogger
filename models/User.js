@@ -14,7 +14,8 @@ const UserSchema = new Schema(
             required: true,
             unique: true,
             // Must match a valid email address
-            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']
+            // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']
+            match: [/^(?<username>[\w\.]+)@(?<domain>\w+)\.(?<extension>\w{3})(?<loc>\.\w{2,8})?$/, 'Please enter a valid email address']
         },
         thoughts: [
             {
