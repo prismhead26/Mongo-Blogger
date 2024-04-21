@@ -16,6 +16,11 @@ module.exports = {
         try {
             const users = await User.find()
             res.json(users)
+
+            if(!users) {
+                res.status(404).json({ message: 'No users found' })
+            }
+
         } catch (err) {
             return res.status(500).json(err)
         }

@@ -33,6 +33,11 @@ module.exports = {
                 .select('-__v')
                 // sort the response by createdAt in descending order
                 .sort({ createdAt: -1 })
+
+            if(!thoughts) {
+                res.status(404).json({ message: 'No thoughts found' })
+            }
+
             res.json(thoughts)
         } catch (err) {
             console.log(err)

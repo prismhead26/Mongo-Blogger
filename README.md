@@ -38,9 +38,9 @@ Step 5: After the "Mongo Blogger Listening on port..." appears in the console, t
 
 ## Links
 Screenshots:
-![Insomnia](./public/images/screenshot1.png)
+![Insomnia](./assets/images/screenshot1.png)
 
-![Insomnia](./public/images/screenshot2.png)
+![Insomnia](./assets/images/screenshot2.png)
 
 
 
