@@ -31,7 +31,7 @@ Step 2: Open integrated terminal once in the main folder.
 <br>
 Step 3: "run npm i" / "sudo npm i" in the terminal to install the required dependencies.
 <br>
-Step 4: Now to run the application, Enter "nodemon index.js" or "npm start" and "node server.js" if you don't have npm nodemon.
+Step 4: Now to run the application, Enter "nodemon server.js" or "npm start" and "node server.js" if you don't have npm nodemon.
 <br>
 Step 5: After the "Mongo Blogger Listening on port..." appears in the console, the application is now running. Feel free to access, modify and view the database with Insomnia or a similar application.
 
@@ -42,6 +42,8 @@ Screenshots:
 
 ![Insomnia](./assets/images/screenshot2.png)
 
+Youtube video link:
+[Youtube Link](https://www.youtube.com/watch?v=D9Ko7PHTrLQ)
 
 
 ## Features:

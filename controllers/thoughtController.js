@@ -26,7 +26,7 @@ module.exports = {
     async getAllThoughts(req, res) {
         try {
             const thoughts = await Thought.find({})
-                .populate('reactions', '-__v')
+                .populate({ path: 'reactions', select: { "reactionId": 1 } })
                 // populate only the username field from the User model into the Thought model
                 .populate( { path: 'userId', model: 'User', select: { "username": 1 } } )
                 // remove the __v field from the response
