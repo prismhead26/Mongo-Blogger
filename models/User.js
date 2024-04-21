@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose')
 const mongoose = require('mongoose')
 
+// Create a new instance of the Schema constructor to shape each document
 const UserSchema = new Schema(
     {
         username: {
@@ -15,7 +16,7 @@ const UserSchema = new Schema(
             unique: true,
             // Must match a valid email address
             // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']
-            match: [/^(?<username>[\w\.]+)@(?<domain>\w+)\.(?<extension>\w{3})(?<loc>\.\w{2,8})?$/, 'Please enter a valid email address']
+            match: [/^(?<username>[\w\.-]+)@(?<domain>\w+)\.(?<extension>\w{3})(?<loc>\.\w{2,8})?$/, 'Please enter a valid email address']
         },
         thoughts: [
             {
@@ -31,6 +32,7 @@ const UserSchema = new Schema(
         ],
     },
     {
+        // set toJson so that virtuals and getters are included in the response
         toJSON: {
             virtuals: true,
             getters: true
@@ -43,6 +45,8 @@ const UserSchema = new Schema(
         return this.friends?.length
     })
 
+// Create a new model using the UserSchema
 const User = model('User', UserSchema)
 
+// Export the User model
 module.exports = User

@@ -49,7 +49,7 @@ Javascript variables, destructuring, classes and constructors, promises, try/cat
 
 ## Built With:
 - Dynamic JavaScript
-- MVC (Model View Controller) style
+- MVC (Model View Controller) style without views
 - Express
 - mongoDB
 - Mongoose
